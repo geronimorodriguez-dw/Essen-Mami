@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Essen by Carolina Marozzi</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Essen by Carolina Marozzi</h1>
+    <p>Cociná con amor, cociná con Essen 👩‍🍳</p>
+  </header>
+
+  <section class="carousel-container">
+    <div class="carousel">
+      <img src="images/Essen2.jpeg" alt="Producto 1">
+      <img src="images/Essen3.jpeg" alt="Producto 2">
+      <img src="images/essen4.jpeg" alt="Producto 3">
+      <img src="images/essen5.jpeg" alt="Producto 4">
+      <img src="images/essen6.jpeg" alt="Producto 5">
+      <!-- Duplicadas para efecto infinito -->
+      <img src="images/Essen2.jpeg" alt="Producto 1">
+      <img src="images/Essen3.jpeg" alt="Producto 2">
+      <img src="images/essen4.jpeg" alt="Producto 3">
+      <img src="images/essen5.jpeg" alt="Producto 4">
+      <img src="images/essen6.jpeg" alt="Producto 5">
+    </div>
+  </section>
+<!-- SECCIÓN POR QUÉ ELEGIR ESSEN -->
+<section class="porque-essen">
+  <div class="imagen">
+    <img src="images/Essen3.jpeg" alt="Por qué elegir Essen">
+  </div>
+  <div class="texto">
+    <h2>¿Por qué elegir Essen?</h2>
+    <p>
+      Con nuestros productos podés preparar miles de recetas y en cada preparación, gracias a la distribución homogénea del calor, vas a ahorrar tiempo, consumo de gas y energía.
+Además, cocinando con un producto Essen, en cada receta resaltás el sabor de los ingredientes y mantenes sus nutrientes.
+Nuestros productos están hechos con la mejor calidad, con esmalte vitroporcenlanizado de alta resistencia y el mejor antiadherente.
+Essen es diseño, innovación y calidad.
+    </p>
+  </div>
+</section>
+<section class="contacto">
+  <h2>📩 Contactame</h2>
+  <button id="openFormBtn" class="btn">Contactame</button>
+
+  <!-- Modal -->
+  <div id="contactModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <form>
+        <input type="text" placeholder="Tu nombre" required>
+        <input type="email" placeholder="Tu email" required>
+        <textarea placeholder="Mensaje" required></textarea>
+        <button type="submit">Enviar</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script>
+  const modal = document.getElementById("contactModal");
+  const btn = document.getElementById("openFormBtn");
+  const span = document.querySelector(".close");
+
+  btn.onclick = () => modal.style.display = "flex";
+  span.onclick = () => modal.style.display = "none";
+  window.onclick = (e) => { if (e.target == modal) modal.style.display = "none"; }
+</script>
+
+  <section class="catalogo">
+    <h2>📖 Catálogo Essen</h2>
+    <a href="catalogo/Catalogo-essen.pdf" class="btn" download>Descargar PDF</a>
+    <a href="https://www.essen.com.ar/" target="_blank" class="btn">Visitar sitio Essen</a>
+  </section>
+
+  <a href="https://wa.me/5493491433544" class="whatsapp-btn" target="_blank">💬 WhatsApp</a>
+
+  <footer>
+    <p>© 2025 Essen by Carolina Marozzi</p>
+<a href="https://instagram.com/essen_bycaromarozzi" target="_blank" class="instagram-link">
+  <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/instagram.svg" alt="Instagram">
+</a>
+  </footer>
+</body>
+</html>
