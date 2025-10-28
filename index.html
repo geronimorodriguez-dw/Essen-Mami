@@ -27,62 +27,84 @@
       <img src="images/essen6.jpeg" alt="Producto 5">
     </div>
   </section>
-<!-- SECCIÓN POR QUÉ ELEGIR ESSEN -->
-<section class="porque-essen">
-  <div class="imagen">
-    <img src="images/Essen3.jpeg" alt="Por qué elegir Essen">
-  </div>
-  <div class="texto">
-    <h2>¿Por qué elegir Essen?</h2>
-    <p>
-      Con nuestros productos podés preparar miles de recetas y en cada preparación, gracias a la distribución homogénea del calor, vas a ahorrar tiempo, consumo de gas y energía.
-Además, cocinando con un producto Essen, en cada receta resaltás el sabor de los ingredientes y mantenes sus nutrientes.
-Nuestros productos están hechos con la mejor calidad, con esmalte vitroporcenlanizado de alta resistencia y el mejor antiadherente.
-Essen es diseño, innovación y calidad.
-    </p>
-  </div>
-</section>
-<section class="contacto">
-  <h2>📩 Contactame</h2>
-  <button id="openFormBtn" class="btn">Contactame</button>
 
-  <!-- Modal -->
-  <div id="contactModal" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <form>
-        <input type="text" placeholder="Tu nombre" required>
-        <input type="email" placeholder="Tu email" required>
-        <textarea placeholder="Mensaje" required></textarea>
-        <button type="submit">Enviar</button>
-      </form>
+  <!-- SECCIÓN POR QUÉ ELEGIR ESSEN -->
+  <section class="porque-essen">
+    <div class="imagen">
+      <img src="images/Essen3.jpeg" alt="Por qué elegir Essen">
     </div>
-  </div>
-</section>
+    <div class="texto">
+      <h2>¿Por qué elegir Essen?</h2>
+      <p>
+        Con nuestros productos podés preparar miles de recetas y en cada preparación, gracias a la distribución homogénea del calor, vas a ahorrar tiempo, consumo de gas y energía.
+        Además, cocinando con un producto Essen, en cada receta resaltás el sabor de los ingredientes y mantenes sus nutrientes.
+        Nuestros productos están hechos con la mejor calidad, con esmalte vitroporcenlanizado de alta resistencia y el mejor antiadherente.
+        Essen es diseño, innovación y calidad.
+      </p>
+    </div>
+  </section>
 
-<script>
-  const modal = document.getElementById("contactModal");
-  const btn = document.getElementById("openFormBtn");
-  const span = document.querySelector(".close");
+  <!-- SECCIÓN CONTACTO -->
+  <section class="contacto">
+    <h2>📩 Contactame</h2>
+    <button id="openFormBtn" class="btn">Contactame</button>
 
-  btn.onclick = () => modal.style.display = "flex";
-  span.onclick = () => modal.style.display = "none";
-  window.onclick = (e) => { if (e.target == modal) modal.style.display = "none"; }
-</script>
+    <!-- Modal -->
+    <div id="contactModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <form id="whatsappForm">
+          <input type="text" placeholder="Tu nombre" id="nombre" required>
+          <input type="email" placeholder="Tu email" id="email" required>
+          <textarea placeholder="Mensaje" id="mensaje" required></textarea>
+          <button type="submit">Enviar por WhatsApp</button>
+        </form>
+      </div>
+    </div>
 
+    <!-- Botón de contacto directo -->
+    <a href="https://wa.me/5493491433544?text=Quiero%20comprar%20mi%20Essen" class="whatsapp-btn" target="_blank">
+      💬 Contactar por WhatsApp
+    </a>
+  </section>
+
+  <!-- SECCIÓN CATÁLOGO -->
   <section class="catalogo">
     <h2>📖 Catálogo Essen</h2>
     <a href="catalogo/Catalogo-essen.pdf" class="btn" download>Descargar PDF</a>
     <a href="https://www.essen.com.ar/" target="_blank" class="btn">Visitar sitio Essen</a>
   </section>
 
-  <a href="https://wa.me/5493491433544" class="whatsapp-btn" target="_blank">💬 WhatsApp</a>
-
   <footer>
     <p>© 2025 Essen by Carolina Marozzi</p>
-<a href="https://instagram.com/essen_bycaromarozzi" target="_blank" class="instagram-link">
-  <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/instagram.svg" alt="Instagram">
-</a>
+    <a href="https://instagram.com/essen_bycaromarozzi" target="_blank" class="instagram-link">
+      <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/instagram.svg" alt="Instagram">
+    </a>
   </footer>
+
+  <!-- SCRIPT MODAL Y FORMULARIO -->
+  <script>
+    const modal = document.getElementById("contactModal");
+    const btn = document.getElementById("openFormBtn");
+    const span = document.querySelector(".close");
+
+    btn.onclick = () => modal.style.display = "flex";
+    span.onclick = () => modal.style.display = "none";
+    window.onclick = (e) => { if (e.target == modal) modal.style.display = "none"; }
+
+    // Enviar formulario por WhatsApp
+    document.getElementById("whatsappForm").addEventListener("submit", function(e){
+      e.preventDefault(); // evita recarga de página
+
+      const nombre = document.getElementById("nombre").value;
+      const email = document.getElementById("email").value;
+      const mensaje = document.getElementById("mensaje").value;
+
+      const text = `Hola! Mi nombre es ${nombre} (${email}). ${mensaje}`;
+      const numero = "5493491433544";
+      const url = `https://wa.me/${numero}?text=${encodeURIComponent(text)}`;
+      window.open(url, "_blank");
+    });
+  </script>
 </body>
 </html>
