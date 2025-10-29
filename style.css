@@ -1,274 +1,308 @@
 /* =========================
    Global Styles
-   ========================= */
+========================= */
 body {
-    font-family: 'Segoe UI', sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #f6f6f6;
-    color: #333;
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f6f6f6;
+  color: #333;
+}
+
+h1, h2 {
+  text-align: center;
+}
+
+p {
+  line-height: 1.6;
+  text-align: center;
 }
 
 /* =========================
-   Header
-   ========================= */
+   HEADER
+========================= */
 header {
-    background-color: #f97c0e;
-    color: white;
-    text-align: center;
-    padding: 40px 20px;
-}
-
-header h1 {
-    margin: 0;
-    font-size: 2.5rem;
-}
-
-header p {
-    font-size: 1.2rem;
-    margin-top: 10px;
+  background-color: #ff7f00; /* Naranja */
+  color: white;
+  padding: 30px 20px;
 }
 
 /* =========================
-   Carousel
-   ========================= */
+   CAROUSEL
+========================= */
 .carousel-container {
-    overflow: hidden;
-    padding: 30px 0;
+  overflow: hidden;
+  width: 100%;
+  margin: 20px 0;
 }
 
 .carousel {
-    display: flex;
-    gap: 20px;
-    width: max-content;
-    animation: scroll 20s linear infinite;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 10px;
+  animation: scroll 20s linear infinite;
 }
 
 .carousel img {
-    width: 300px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  flex: 0 0 auto;
+  width: 300px;
+  height: auto;
+  border-radius: 10px;
 }
 
 @keyframes scroll {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); } /* duplicadas en HTML */
+}
+
+@media (max-width: 768px) {
+  .carousel img {
+    width: 80%;
+  }
 }
 
 /* =========================
-   Por qué elegir Essen
-   ========================= */
+   POR QUÉ ELEGIR ESSEN
+========================= */
 .porque-essen {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: 50px;
-    max-width: 1000px;
-    margin: 60px auto;
-    padding: 30px 20px;
-    background-color: #fff;
-    border-radius: 16px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  gap: 20px;
+  background: #fff;
 }
 
 .porque-essen .imagen img {
-    width: 320px;
-    height: auto;
-    border-radius: 12px;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+  width: 400px;
+  max-width: 100%;
+  border-radius: 10px;
 }
 
 .porque-essen .texto {
-    max-width: 420px;
-    text-align: left;
-}
-
-.porque-essen h2 {
-    color: #f97c0e;
-    font-size: 1.8em;
-    margin-bottom: 10px;
-}
-
-.porque-essen p {
-    font-size: 1em;
-    line-height: 1.6;
-    color: #444;
+  max-width: 500px;
 }
 
 /* =========================
-   Botones
-   ========================= */
-.btn {
-    display: inline-block;
-    background-color: #f97c0e;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 8px;
-    text-decoration: none;
-    margin: 10px;
-    transition: 0.3s;
-}
-
-.btn:hover {
-    background-color: #e56f0b;
-}
-
-/* =========================
-   Catálogo
-   ========================= */
+   CATALOGO
+========================= */
 .catalogo {
-    text-align: center;
-    padding: 40px 20px;
+  text-align: center;
+  padding: 40px 20px;
+  background: #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.catalogo .btn {
+  border: 2px solid black;
+  background-color: #fff;
+  color: black;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.catalogo .btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Modal catálogo grande */
+.catalogo-modal {
+  width: 90%;
+  max-width: 1200px;
+  height: 90%;
+  max-height: 800px;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 0;
+}
+
+.catalogo-modal iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 10px;
 }
 
 /* =========================
-   Formulario
-   ========================= */
+   CONTACTO
+========================= */
 .contacto {
-    text-align: center;
-    padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  padding: 40px 20px;
+  background: #fff;
 }
 
-.contacto form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    max-width: 400px;
-    margin: auto;
+.contacto .btn {
+  background-color: #ff7f00;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.contacto input,
-.contacto textarea {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
+.contacto .btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
-.contacto button {
-    background-color: #f97c0e;
-    color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 6px;
-    cursor: pointer;
+.contacto .whatsapp-btn {
+  background-color: #25d366;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-block;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.contacto button:hover {
-    background-color: #e56f0b;
+.contacto .whatsapp-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Modal contacto moderno */
+#contactModal .modal-content {
+  width: 90%;
+  max-width: 500px;
+  padding: 30px 20px;
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  position: relative;
+}
+
+#contactModal .modal-content .close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+#contactModal form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#contactModal input,
+#contactModal textarea {
+  padding: 12px 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+
+#contactModal input:focus,
+#contactModal textarea:focus {
+  border-color: #ff7f00;
+  box-shadow: 0 0 5px rgba(255,127,0,0.5);
+  outline: none;
+}
+
+#contactModal button[type="submit"] {
+  background-color: #ff7f00;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+#contactModal button[type="submit"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
 /* =========================
-   WhatsApp Button
-   ========================= */
-.whatsapp-btn {
-    display: block;
-    width: 200px;
-    margin: 30px auto;
-    background-color: #25D366;
-    color: white;
-    text-align: center;
-    padding: 12px;
-    border-radius: 25px;
-    font-weight: bold;
-    text-decoration: none;
-}
-
-.whatsapp-btn:hover {
-    background-color: #20b958;
-}
-
-/* =========================
-   Footer
-   ========================= */
-footer {
-    background-color: #222;
-    color: white;
-    text-align: center;
-    padding: 20px;
-    position: relative;
-}
-
-.instagram-link img {
-    width: 28px;
-    height: 28px;
-    vertical-align: middle;
-    margin-left: 10px;
-}
-
-.instagram-link:hover img {
-    filter: brightness(0.8);
-}
-
-/* =========================
-   Modal
-   ========================= */
+   MODALES GENERALES
+========================= */
 .modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.5);
-    justify-content: center;
-    align-items: center;
-    display: flex; /* centrado con flexbox */
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
 }
 
 .modal-content {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    width: 90%;
-    max-width: 400px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    position: relative;
-    animation: slideDown 0.3s ease;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 90%;
+  max-height: 90%;
+  overflow-y: auto;
+  position: relative;
 }
 
-@keyframes slideDown {
-    from { transform: translateY(-50px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
+.modal .close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 25px;
+  cursor: pointer;
 }
 
-.close {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    color: #333;
-    font-size: 24px;
-    font-weight: bold;
-    cursor: pointer;
+/* =========================
+   FOOTER
+========================= */
+footer {
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  text-align: center;
 }
 
-.close:hover {
-    color: #f00;
+footer img {
+  width: 30px;
+  height: 30px;
+  vertical-align: middle;
+  margin-left: 10px;
 }
 
-.modal form input,
-.modal form textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-}
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+  .porque-essen {
+    flex-direction: column;
+  }
 
-.modal form button {
-    width: 100%;
-    padding: 10px;
-    background-color: #ff8000;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
+  .carousel img {
+    width: 80%;
+  }
 
-.modal form button:hover {
-    background-color: #e67300;
+  #contactModal .modal-content {
+    padding: 20px 15px;
+  }
+
+  .catalogo-modal {
+    width: 95%;
+    height: 80%;
+  }
 }

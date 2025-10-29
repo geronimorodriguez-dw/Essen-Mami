@@ -43,6 +43,21 @@
       </p>
     </div>
   </section>
+   <!-- SECCIÓN CATÁLOGO -->
+<section class="catalogo">
+  <h2>📖 Catálogo Essen</h2>
+  <button id="openCatalogBtn" class="btn">Ver catálogo</button>
+  <a href="https://www.essen.com.ar/" target="_blank" class="btn">Visitar sitio Essen</a>
+
+  <!-- Modal del Catálogo -->
+  <div id="catalogModal" class="modal">
+    <div class="modal-content catalogo-modal">
+      <span class="close">&times;</span>
+      <iframe src="catalogo/Catalogo-essen.pdf" width="100%" height="500px" style="border: none; border-radius: 10px;"></iframe>
+    </div>
+  </div>
+</section>
+
 
   <!-- SECCIÓN CONTACTO -->
   <section class="contacto">
@@ -63,16 +78,9 @@
     </div>
 
     <!-- Botón de contacto directo -->
-    <a href="https://wa.me/5493491433544?text=Quiero%20comprar%20mi%20Essen" class="whatsapp-btn" target="_blank">
+    <a href="https://wa.me/5493491433544?text=Hola%20Carolina!!!%20Quiero%20comprar%20mi%20Essen" class="whatsapp-btn" target="_blank">
       💬 Contactar por WhatsApp
     </a>
-  </section>
-
-  <!-- SECCIÓN CATÁLOGO -->
-  <section class="catalogo">
-    <h2>📖 Catálogo Essen</h2>
-    <a href="catalogo/Catalogo-essen.pdf" class="btn" download>Descargar PDF</a>
-    <a href="https://www.essen.com.ar/" target="_blank" class="btn">Visitar sitio Essen</a>
   </section>
 
   <footer>
@@ -83,28 +91,63 @@
   </footer>
 
   <!-- SCRIPT MODAL Y FORMULARIO -->
-  <script>
-    const modal = document.getElementById("contactModal");
-    const btn = document.getElementById("openFormBtn");
-    const span = document.querySelector(".close");
+<script>
+// === MODAL CONTACTO ===
+const contactModal = document.getElementById("contactModal");
+const openFormBtn = document.getElementById("openFormBtn");
+const closeContactBtn = contactModal.querySelector(".close");
 
-    btn.onclick = () => modal.style.display = "flex";
-    span.onclick = () => modal.style.display = "none";
-    window.onclick = (e) => { if (e.target == modal) modal.style.display = "none"; }
+// Abrir y cerrar el modal de contacto
+openFormBtn.onclick = () => contactModal.style.display = "flex";
+closeContactBtn.onclick = () => contactModal.style.display = "none";
+window.addEventListener("click", (e) => {
+  if (e.target === contactModal) contactModal.style.display = "none";
+});
 
-    // Enviar formulario por WhatsApp
-    document.getElementById("whatsappForm").addEventListener("submit", function(e){
-      e.preventDefault(); // evita recarga de página
+// Enviar formulario por WhatsApp
+document.getElementById("whatsappForm").addEventListener("submit", function(e){
+  e.preventDefault();
+  const nombre = document.getElementById("nombre").value;
+  const email = document.getElementById("email").value;
+  const mensaje = document.getElementById("mensaje").value;
 
-      const nombre = document.getElementById("nombre").value;
-      const email = document.getElementById("email").value;
-      const mensaje = document.getElementById("mensaje").value;
+  const text = `Hola! Mi nombre es ${nombre} (${email}). ${mensaje}`;
+  const numero = "5493491433544";
+  const url = `https://wa.me/${numero}?text=${encodeURIComponent(text)}`;
+  window.open(url, "_blank");
+});
 
-      const text = `Hola! Mi nombre es ${nombre} (${email}). ${mensaje}`;
-      const numero = "5493491433544";
-      const url = `https://wa.me/${numero}?text=${encodeURIComponent(text)}`;
-      window.open(url, "_blank");
-    });
-  </script>
+// === MODAL CATÁLOGO ===
+const catalogModal = document.getElementById("catalogModal");
+const openCatalogBtn = document.getElementById("openCatalogBtn");
+const closeCatalogBtn = catalogModal.querySelector(".close");
+
+// Abrir y cerrar modal catálogo
+openCatalogBtn.onclick = () => catalogModal.style.display = "flex";
+closeCatalogBtn.onclick = () => catalogModal.style.display = "none";
+window.addEventListener("click", (e) => {
+  if (e.target === catalogModal) catalogModal.style.display = "none";
+});
+
+// === CARRUSEL SUAVE INFINITO ===
+// Solución: duplicar las imágenes y moverlas usando requestAnimationFrame
+const carousel = document.querySelector('.carousel');
+let scrollPos = 0;
+const speed = 0.5; // velocidad del carrusel, ajusta si quieres más rápido
+
+function animateCarousel() {
+  scrollPos += speed;
+  if (scrollPos >= carousel.scrollWidth / 2) { // mitad de las imágenes duplicadas
+    scrollPos = 0;
+  }
+  carousel.style.transform = `translateX(-${scrollPos}px)`;
+  requestAnimationFrame(animateCarousel);
+}
+
+// Iniciar animación
+animateCarousel();
+</script>
+
+
 </body>
 </html>
